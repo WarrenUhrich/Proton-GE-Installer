@@ -53,7 +53,7 @@ echo "Downloading tarball: $tarball_name..."
 curl -# -L $tarball_url -o $tarball_name --no-progress-meter
 
 echo "Fetching checksum URL..."
-checksum_url=$(curl -s "https://api.github.com/repos/GloriousEggroll/proton-ge-custom/releases/tags/GE-Proton8-7" | grep browser_download_url | cut -d\" -f4 | grep .sha512sum)
+checksum_url=$(curl -s "https://api.github.com/repos/GloriousEggroll/proton-ge-custom/releases/tags/$selected_tag" | grep browser_download_url | cut -d\" -f4 | grep .sha512sum)
 checksum_name=$(basename $checksum_url)
 echo "Downloading checksum: $checksum_name..."
 curl -# -L $checksum_url -o $checksum_name --no-progress-meter
